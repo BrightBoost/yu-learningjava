@@ -1,0 +1,46 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IntelliJ IDEA (any depth)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+cmake-build-*/
+
+# Java / build output
+target/
+build/
+.gradle/
+*.class
+*.log
+hs_err_pid*
+*.jar
+*.war
+*.ear
+!gradle/wrapper/gradle-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse / VS Code
+.classpath
+.project
+.settings/
+.vscode/
+
+# Node / React
+node_modules/
+dist/
+.next/
+.parcel-cache/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
