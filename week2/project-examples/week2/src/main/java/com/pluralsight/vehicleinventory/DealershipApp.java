@@ -33,6 +33,7 @@ public class DealershipApp {
                     searchByColor(vehicles);
                     break;
                 case 5:
+                    addVehicle(vehicles);
                     break;
                 case 6:
                     programRuns = false;
@@ -71,7 +72,7 @@ public class DealershipApp {
         System.out.println("What make or model are you looking for?");
         String makeModel = scanner.nextLine();
         for(Vehicle vehicle : vehicles) {
-            if(vehicle.getMakeModel().contains(makeModel)) {
+            if(vehicle != null && vehicle.getMakeModel().contains(makeModel)) {
                 System.out.println(vehicle);
             }
         }
@@ -83,7 +84,7 @@ public class DealershipApp {
         System.out.println("What is the max price?");
         double maxPrice = Double.parseDouble(scanner.nextLine());
         for(Vehicle vehicle : vehicles) {
-            if(vehicle.getPrice() > minPrice && vehicle.getPrice() < maxPrice) {
+            if(vehicle != null && vehicle.getPrice() > minPrice && vehicle.getPrice() < maxPrice) {
                 System.out.println(vehicle);
             }
         }
@@ -93,7 +94,7 @@ public class DealershipApp {
         System.out.println("What color are you looking for?");
         String color = scanner.nextLine();
         for(Vehicle vehicle : vehicles) {
-            if(vehicle.getColor().contains(color)) {
+            if(vehicle != null && vehicle.getColor().contains(color)) {
                 System.out.println(vehicle);
             }
         }
