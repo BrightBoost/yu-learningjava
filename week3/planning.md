@@ -10,4 +10,4 @@
 
 
 ## What we're working on now....
-exercise on page 17
+exercise on page 23

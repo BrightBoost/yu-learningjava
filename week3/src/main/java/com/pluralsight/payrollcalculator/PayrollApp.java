@@ -15,7 +15,7 @@ public class PayrollApp {
             BufferedReader br = new BufferedReader(fr);
 
             // walk through every line of the file
-            String line = br.readLine();
+            String line = br.readLine(); // skipping the first line with column names
 
             while((line = br.readLine()) != null) {
                 // for every line, split on the |
