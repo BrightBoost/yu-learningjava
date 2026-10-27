@@ -58,6 +58,10 @@ public class Employee {
                 '}';
     }
 
+    public String getCsvString() {
+        return employeeId + "|" + name + "|" + getGrossPay() + "\n";
+    }
+
     // getGrossPay method
     public double getGrossPay() {
         return hoursWorked * payRate;
