@@ -1,16 +1,15 @@
 package com.pluralsight.inventory;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class StoreApp {
+   private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         ArrayList<Product> inventory = getInventoryFromFile();
 
         boolean running = true;
-        Scanner scanner = new Scanner(System.in);
         while(running) {
             displayMenu();
             int choice = scanner.nextInt();
@@ -19,24 +18,34 @@ public class StoreApp {
             switch (choice) {
                 case 1:
                     displayProducts(inventory);
+                    break;
                 case 2:
                     System.out.println("What id are you looking for?");
                     int idOfProduct = scanner.nextInt();
                     scanner.nextLine();
                     Product foundProduct = findProductById(inventory, idOfProduct);
                     System.out.println(foundProduct);
+                    break;
                 case 3:
+                    System.out.println("What is the minimum price?");
+                    double min = scanner.nextDouble();
+                    System.out.println("What is the maximum price?");
+                    double max = scanner.nextDouble();
+                    scanner.nextLine();
+                    ArrayList<Product> productsInRange = findProductInPriceRange(inventory, min, max);
+                    displayProducts(productsInRange);
+                    break;
                 case 4:
+                    inventory.add(addProduct());
+                    break;
                 case 5:
+                    running = false;
+                    break;
                 default:
                     System.out.println("Sorry I don't know that option!");
+                    break;
             }
         }
-
-
-
-
-
     }
 
     public static void displayProducts(ArrayList<Product> inventory) {
@@ -48,6 +57,31 @@ public class StoreApp {
         }
     }
 
+    public static Product addProduct() {
+        System.out.println("What is the id?");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("What is the name?");
+        String name = scanner.nextLine();
+        System.out.println("What is the price?");
+        double price = scanner.nextDouble();
+        scanner.nextLine();
+
+        Product newProduct = new Product(id, name, price);
+        writeProductToFile(newProduct);
+        return newProduct;
+    }
+
+    public static void writeProductToFile(Product product) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("inventory.csv", true));
+            bw.write(product.toFileString());
+            bw.close();
+        } catch (IOException e) {
+            System.out.println("Oh oh: " + e.getMessage());
+        }
+    }
+
     public static Product findProductById(ArrayList<Product> inventory, int id) {
         for(Product p : inventory) {
             if(p.getId() == id) {
@@ -55,6 +89,16 @@ public class StoreApp {
             }
         }
         return null;
+    }
+
+    public static ArrayList<Product> findProductInPriceRange(ArrayList<Product> inventory, double min, double max) {
+        ArrayList<Product> productsInRange = new ArrayList<>();
+        for(Product p : inventory) {
+            if(p.getPrice() > min && p.getPrice() < max) {
+                productsInRange.add(p);
+            }
+        }
+        return productsInRange;
     }
 
     public static ArrayList<Product> getInventory() {
@@ -81,7 +125,6 @@ public class StoreApp {
         } catch (IOException e) {
             System.out.println("Oh oh:" + e.getMessage());
         }
-
         return inventory;
     }
 
@@ -97,5 +140,4 @@ public class StoreApp {
                 """;
         System.out.println(menu);
     }
-
 }

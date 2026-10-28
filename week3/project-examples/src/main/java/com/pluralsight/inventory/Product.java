@@ -19,6 +19,9 @@ public class Product {
         return this.price;
     }
 
+    public String toFileString() {
+        return id + "|" + name + "|" + price + "\n";
+    }
     @Override
     public String toString() {
         return "Product{" +
