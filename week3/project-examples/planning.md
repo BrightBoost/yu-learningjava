@@ -8,6 +8,14 @@
 - 14.30-14.45: break
 - 14.45-end of class: assessment
 
+## Thursday
+- morning and a little after lunch: md practice
+- start with the workshop
+- last 40 minutes of today: showing readme's
+
+## Friday
+- continue with the workshop
+- after lunch: capstone will be released
 
 ## What we're working on now....
-exercise on page 49
+[readme_exercise](https://github.com/BrightBoost/yu-learningjava/blob/main/week3/extra-challenges/github_profile_readme_exercise.md)
