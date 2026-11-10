@@ -13,5 +13,9 @@ public class Main {
         car3.start();
         car3.drive("Nebiyu");
         car3.stop();
+
+        Cat cat = new Cat();
+        cat.sayMeow();
+        cat.sayMeow("Miauw");
     }
 }

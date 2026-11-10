@@ -6,6 +6,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private int startedAt;
 
     public long getEmployeeId() {
         return employeeId;
@@ -66,5 +67,15 @@ public class Employee {
         } else {
             return 0;
         }
+    }
+
+    // methods
+
+    public void punchIn(int time) {
+        startedAt = time;
+    }
+
+    public void punchOut(int time) {
+        hoursWorked += (time - startedAt);
     }
 }
