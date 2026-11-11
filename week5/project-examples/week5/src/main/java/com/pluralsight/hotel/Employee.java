@@ -48,6 +48,14 @@ public class Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    public int getStartedAt() {
+        return startedAt;
+    }
+
+    public void setStartedAt(int startedAt) {
+        this.startedAt = startedAt;
+    }
+
     // derived getters
     public double getTotalPay() {
         return hoursWorked * payRate;
