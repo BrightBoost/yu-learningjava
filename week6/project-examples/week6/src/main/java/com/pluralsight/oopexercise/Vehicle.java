@@ -45,4 +45,8 @@ public class Vehicle {
     public void setFuelCapacity(int fuelCapacity) {
         this.fuelCapacity = fuelCapacity;
     }
+
+    public void makeWarningSound() {
+        System.out.println("honk");
+    }
 }

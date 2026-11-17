@@ -15,4 +15,10 @@ public class Moped extends Vehicle {
     public void setHelmetRequired(boolean helmetRequired) {
         this.helmetRequired = helmetRequired;
     }
+
+    @Override
+    public void makeWarningSound() {
+        System.out.println("meep");
+    }
+
 }
